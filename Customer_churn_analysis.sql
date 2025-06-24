@@ -125,7 +125,7 @@ CAST(SUM(CASE WHEN churn_stat = 'churned' THEN 1 ELSE 0 END)*1.0/COUNT(*)*100
 FROM churn
 GROUP BY PreferredLoginDevice
 
---What is the distribution of customers across different city tiers?
+--3.What is the distribution of customers across different city tiers?
 SELECT CityTier as City,
 COUNT(*) AS total_cusotmer,
 SUM(CASE WHEN churn_stat = 'churned' THEN 1 ELSE 0 END) AS churned_customer_city,
@@ -247,7 +247,7 @@ GROUP BY churn_stat
   GROUP BY MaritalStatus
   ORDER BY ChurnRates DESC
   
-  --14. Do customer complaints influence churned behavior?
+  --13. Do customer complaints influence churned behavior?
   SELECT complain_stat  as Complain_status,
   COUNT(*) AS total_customer,
   SUM(CASE WHEN churn_stat = 'churned' THEN 1 ELSE 0 END) AS churn_cutomer,
@@ -256,7 +256,7 @@ GROUP BY churn_stat
   FROM churn
   GROUP BY complain_stat
   ORDER BY ChurnRates DESC
-  --17. Is there any correlation between cashback amount and churn rate?
+  --14. Is there any correlation between cashback amount and churn rate?
 
 
 ALTER TABLE churn
